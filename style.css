@@ -24,21 +24,28 @@
  padding: 0 5px 0 10px;
  cursor: pointer;
  z-index: 2;
+ position: relative;
 }
 
-.select-container .select-box.active svg {
- transform: rotate(180deg);
+.select-container .select-box::after {
+ content: "";
+ width: 8px;
+ height: 8px;
+ border-bottom: 2px solid #ddd;
+ border-right: 2px solid #ddd;
+ position: absolute;
+ right: 10px;
+ top: 50%;
+ transform: translateY(-50%) rotate(45deg);
+ transition: transform 0.1s;
+}
+
+.select-container .select-box.active::after {
+ transform: translateY(-50%) rotate(-135deg);
 }
 
 .select-container .select-box * {
  pointer-events: none;
-}
-
-.select-container svg {
- width: 30px;
- height: 30px;
- fill: #ddd;
- transition: 0.1s ease;
 }
 
 .select-container .select {
@@ -54,10 +61,10 @@
  height: 0;
  transform: translateY(-200%);
  opacity: 0;
- transition: opacity 0.1s ease;
+ transition: height 0.1s ease;
 }
 
-.select-container .select .option {
+.select-container .select :is(.option, .option-search input) {
  width: 100%;
  height: 40px;
  display: flex;
@@ -66,6 +73,26 @@
  padding: 10px;
  cursor: pointer;
  transition: 0.1s ease;
+}
+
+.select-container .select .option-search {
+ padding: 0;
+}
+
+.select-container .select .option-search input {
+ width: 100%;
+ height: 100%;
+ border: none;
+ outline: none;
+ font-family: inherit;
+ padding: 10px;
+ border-bottom: 1px solid #ddd;
+ cursor: auto;
+}
+
+.select-container .select .option.disabled {
+ pointer-events: none;
+ opacity: 0.5;
 }
 
 .select-container .select .option:hover {
@@ -77,12 +104,7 @@
  color: #fff;
 }
 
-.select-container input {
- display: none;
-}
-
 .select.active {
  opacity: 1;
  transform: translateY(0);
- height: fit-content
 }
