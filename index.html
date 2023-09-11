@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Select</title>
-</head>
-<body>
- 
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Select</title>
+  </head>
+  <body>
+    <div class="select-container">
+      <div class="select-box" onclick="dropSelect()">
+        <input type="radio" name="make" id="make" value="" /><label for="make"
+          >Select</label
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="select">
+        <div class="option" data-value="bmw">BMW</div>
+        <div class="option" data-value="mercedes">Mercedes</div>
+        <div class="option" data-value="mercedes">Mercedes</div>
+        <div class="option" data-value="mercedes">Mercedes</div>
+        <div class="option" data-value="mercedes">Mercedes</div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
